@@ -46,7 +46,7 @@ set shot_top=30
 set bottom=90
 
 :: RV程序路径
-set rvio_path="\\work\app_config\release\rv\RV-4.0.10-64\bin\rvio_hw.exe" 
+set rvio_path="C:/Program Files/Tweak/RV-4.0.10-64/bin/rvio_hw.exe" 
 
 :: FFMPEG程序路径
 set ffmpeg_path="\\work\app_config\release\ffmpeg\bin\ffmpeg.exe" 
