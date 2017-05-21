@@ -1,13 +1,14 @@
 @echo off
-:: 2017_03_26 V1.0 ÍõÏşÎ°
-:: Õâ¸ö½Å±¾Í¨¹ıÍÏ×§ĞòÁĞÖ¡ËùÔÚÎÄ¼ş¼Ğ½«ÀïÃæµÄĞòÁĞÖ¡×ª³Émov¡£
+:: 2017_03_26 V1.0 ç‹æ™“ä¼Ÿ
+:: åŸºäºæœ¬åœ°ç‰ˆæœ¬C:\project\dragndrop_convert_mov\ffmpeg_batch\convert_images_to_mov_v012_good_ffmpeg.cmd
+:: è¿™ä¸ªè„šæœ¬é€šè¿‡æ‹–æ‹½åºåˆ—å¸§æ‰€åœ¨æ–‡ä»¶å¤¹å°†é‡Œé¢çš„åºåˆ—å¸§è½¬æˆmovã€‚
 :: Todo:
-:: ×Ô¶¯Ê¶±ğÍÏ×§µÄÊÇÎÄ¼ş¼Ğ»òÎÄ¼ş¡£²¢Ö´ĞĞÏàÓ¦µÄ²Ù×÷¡£
-:: Èç¹ûÎÄ¼ş¼ĞÄÚÎŞÎÄ¼ş£¬ÄÜ×Ô¶¯ÌáĞÑ¡£
-:: Èç¹ûÎÄ¼şÃûÃ»ÓĞĞòÁĞÖ¡ºÅÄÜ¹»ÌáĞÑ¡£
-:: Êä³öµÄ¸ß±ØĞëÊÇÅ¼Êı£¬ÆæÊıÎŞ·¨Êä³öµÄÎÊÌâ
-:: ×Ô¶¯¸²¸Çmov
-:: ¼ÓĞ´commonµÄµØ·½
+:: è‡ªåŠ¨è¯†åˆ«æ‹–æ‹½çš„æ˜¯æ–‡ä»¶å¤¹æˆ–æ–‡ä»¶ã€‚å¹¶æ‰§è¡Œç›¸åº”çš„æ“ä½œã€‚
+:: å¦‚æœæ–‡ä»¶å¤¹å†…æ— æ–‡ä»¶ï¼Œèƒ½è‡ªåŠ¨æé†’ã€‚
+:: å¦‚æœæ–‡ä»¶åæ²¡æœ‰åºåˆ—å¸§å·èƒ½å¤Ÿæé†’ã€‚
+:: è¾“å‡ºçš„é«˜å¿…é¡»æ˜¯å¶æ•°ï¼Œå¥‡æ•°æ— æ³•è¾“å‡ºçš„é—®é¢˜
+:: è‡ªåŠ¨è¦†ç›–mov
+:: åŠ å†™commonçš„åœ°æ–¹
 
 setlocal EnableDelayedExpansion
 
@@ -22,14 +23,14 @@ set input_fps=24
 set output_fps=24
 set pad_color=black
 
-:: ÕÚ·ù£¬slate£¬LUTµÄ¿ª¹Ø
+:: é®å¹…ï¼Œslateï¼ŒLUTçš„å¼€å…³
 set slate_on=1
 set lut_on=1
 set mask_on=1
 
-:: SlateÉèÖÃ
-set project=ÕØÊÂÕß
-set company=³¤¿ÕÒ»»­
+:: Slateè®¾ç½®
+set project=è‚‡äº‹è€…
+set company=é•¿ç©ºä¸€ç”»
 set font=C\\:/Windows/Fonts/simhei.ttf
 set font_color=white
 set font_opacity=0.8
@@ -41,16 +42,16 @@ set top=90
 set shot_top=30
 set bottom=90
 
-:: FFMPEG³ÌĞòÂ·¾¶
+:: FFMPEGç¨‹åºè·¯å¾„
 set ffmpeg_path="\\work\app_config\release\ffmpeg\bin\ffmpeg.exe" 
 set ffprobe_path="\\work\app_config\release\ffmpeg\bin\ffprobe.exe"
 
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: ¸ù¾İÍÏ×§µÄÎÄ¼ş¼ĞµÃµ½ffmpegĞèÒªµÄÊäÈëºÍÊä³öÎÄ¼şÂ·¾¶
+:: æ ¹æ®æ‹–æ‹½çš„æ–‡ä»¶å¤¹å¾—åˆ°ffmpegéœ€è¦çš„è¾“å…¥å’Œè¾“å‡ºæ–‡ä»¶è·¯å¾„
 
 
-:: »ñÈ¡ÍÏ×§µ½½Å±¾ÉÏµÄ°üº¬Â·¾¶µÄÍêÕûÎÄ¼şÃû
+:: è·å–æ‹–æ‹½åˆ°è„šæœ¬ä¸Šçš„åŒ…å«è·¯å¾„çš„å®Œæ•´æ–‡ä»¶å
 set input_dir=%~f1
 set input_up_folder=%~dp1
 set output_folder=%input_up_folder%mov\
@@ -61,7 +62,7 @@ echo input_dir:%input_dir%
 echo input_up_folder:%input_up_folder%
 echo output_folder:%output_folder%
 
-:: »ñÈ¡Â·¾¶ÄÚ°´Ãû×ÖÅÅĞòµÄµÚÒ»¸öÎÄ¼şÃû
+:: è·å–è·¯å¾„å†…æŒ‰åå­—æ’åºçš„ç¬¬ä¸€ä¸ªæ–‡ä»¶å
 for /f "usebackq" %%a in (`dir /O:N /A:-H /B "%input_dir%"`) do (
 set fullfilename=%%a
 goto out1
@@ -72,16 +73,16 @@ echo fullfilename:%fullfilename%
 set fp_file_name=%input_dir%\%fullfilename%
 echo fp_file_name: %fp_file_name%
 
-:: ÒÔ"."Îª·Ö½ç½«ÎÄ¼şÃû·Ö¿ª£¬°ÑµÚÒ»¸öºÍµÚ¶ş¸ö¸ø±äÁ¿name ºÍframe¡£
-:: ºóĞøĞèÒªÊ¶±ğÈç¹ûÃ»ÓĞĞòÁĞÖ¡µÄÇé¿ö¡£
+:: ä»¥"."ä¸ºåˆ†ç•Œå°†æ–‡ä»¶ååˆ†å¼€ï¼ŒæŠŠç¬¬ä¸€ä¸ªå’Œç¬¬äºŒä¸ªç»™å˜é‡name å’Œframeã€‚
+:: åç»­éœ€è¦è¯†åˆ«å¦‚æœæ²¡æœ‰åºåˆ—å¸§çš„æƒ…å†µã€‚
 for /f "usebackq tokens=1,2 delims=." %%b in ('%fullfilename%') do (@set clean_name=%%b& @set start_frame=%%c)
 echo start_frame: %start_frame%
 
-:: ÒÔ"."Îª·Ö½ç°ÑÎÄ¼şÃû·Ö¿ªÈ¡µÚÈı¶ÎµÄÀ©Õ¹Ãû¡£
-:: Õâ¸ö·½·¨ºÜ±¿£¬Èç¹ûÎÄ¼şÖ»ÓĞÁ½²¿·Ö¾Í»á³ö´í¡£
+:: ä»¥"."ä¸ºåˆ†ç•ŒæŠŠæ–‡ä»¶ååˆ†å¼€å–ç¬¬ä¸‰æ®µçš„æ‰©å±•åã€‚
+:: è¿™ä¸ªæ–¹æ³•å¾ˆç¬¨ï¼Œå¦‚æœæ–‡ä»¶åªæœ‰ä¸¤éƒ¨åˆ†å°±ä¼šå‡ºé”™ã€‚
 for /f "usebackq tokens=3 delims=." %%e in ('%fullfilename%') do (set ext=%%e)
 
-:: Éú³ÉffmpegĞèÒªµÄĞòÁĞÖ¡ÎÄ¼şÃû
+:: ç”Ÿæˆffmpegéœ€è¦çš„åºåˆ—å¸§æ–‡ä»¶å
 set ff_filename=%clean_name%.%%d.%ext%
 set ff_fullpath=%input_dir%\%clean_name%.%%d.%ext%
 set ff_full_out_path=%output_folder%%clean_name%.mov
@@ -90,8 +91,8 @@ echo ff_full_out_path:%ff_full_out_path%
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:: ¶ÁÈ¡ÊäÈëËØ²ÄµÄÍ¼Æ¬¿íºÍ¸ß¡£ 
-:: ÖĞ¼äÓÃÒ»¸öÁÙÊ±ÎÄ¼ş´æ´¢µÃµ½µÄ¿í¸ßÖµ£¬È»ºóÔÙ¶ÁÈ¡½øÀ´¸³Öµ¡£batchÎŞ·¨Ö±½Ó½«Ò»¸ö³ÌĞòµÄÊä³öÖµ´«¸øÁíÒ»¸ö³ÌĞò¡£
+:: è¯»å–è¾“å…¥ç´ æçš„å›¾ç‰‡å®½å’Œé«˜ã€‚ 
+:: ä¸­é—´ç”¨ä¸€ä¸ªä¸´æ—¶æ–‡ä»¶å­˜å‚¨å¾—åˆ°çš„å®½é«˜å€¼ï¼Œç„¶åå†è¯»å–è¿›æ¥èµ‹å€¼ã€‚batchæ— æ³•ç›´æ¥å°†ä¸€ä¸ªç¨‹åºçš„è¾“å‡ºå€¼ä¼ ç»™å¦ä¸€ä¸ªç¨‹åºã€‚
 %ffprobe_path%  -v error -show_entries stream=width -of default=noprint_wrappers=1:nokey=1 %fp_file_name% > %TEMP%\M0vyyyeah.tmp
 %ffprobe_path%  -v error -show_entries stream=height -of default=noprint_wrappers=1:nokey=1 %fp_file_name% >> %TEMP%\M0vyyyeah.tmp
 
@@ -103,15 +104,15 @@ echo ff_full_out_path:%ff_full_out_path%
 echo i_width:%i_width%
 echo i_height:%i_height%
 
-:: ±È¶ÔÊä³ö¸ñÊ½ÓëÊäÈë¸ñÊ½µÄ»­·ù±È´óĞ¡£¬Èç¹ûÊä³öµÄ¿í¸ß±È´óÓÚÊäÈëµÄ¿í¸ß±È£¬ÔòĞèÒªcropÊäÈëµÄ»­Ãæ£¬ÈçĞ¡ÓÚ»òµÈÓÚÔòĞèÒªpadÊäÈëµÄ»­Ãæ¡£
-:: ÒòÎªbatch²»Ö§³ÖĞ¡ÊıµÄÔËËãËùÒÔ·Ö±ğ½«ÊäÈëÓëÊä³öheight·Ö±ğ³ËÒÔ¶Ô·½µÄwidth±È´óĞ¡£¬Èç¹ûÊäÈë±ÈÊä³ö´ó¾Ícrop£¬Èç¹ûĞ¡»òµÈÓÚÔòpad¡£
+:: æ¯”å¯¹è¾“å‡ºæ ¼å¼ä¸è¾“å…¥æ ¼å¼çš„ç”»å¹…æ¯”å¤§å°ï¼Œå¦‚æœè¾“å‡ºçš„å®½é«˜æ¯”å¤§äºè¾“å…¥çš„å®½é«˜æ¯”ï¼Œåˆ™éœ€è¦cropè¾“å…¥çš„ç”»é¢ï¼Œå¦‚å°äºæˆ–ç­‰äºåˆ™éœ€è¦padè¾“å…¥çš„ç”»é¢ã€‚
+:: å› ä¸ºbatchä¸æ”¯æŒå°æ•°çš„è¿ç®—æ‰€ä»¥åˆ†åˆ«å°†è¾“å…¥ä¸è¾“å‡ºheightåˆ†åˆ«ä¹˜ä»¥å¯¹æ–¹çš„widthæ¯”å¤§å°ï¼Œå¦‚æœè¾“å…¥æ¯”è¾“å‡ºå¤§å°±cropï¼Œå¦‚æœå°æˆ–ç­‰äºåˆ™padã€‚
 
 set /a in_height_b=%i_height%*%out_width%
 set /a out_height_b=%out_height%*%i_width%
 echo in_height_b:%in_height_b%
 echo out_height_b:%out_height_b%
 
-:: ÉèÖÃÊÇ·ñÆôÓÃmask£¬lut£¬slate
+:: è®¾ç½®æ˜¯å¦å¯ç”¨maskï¼Œlutï¼Œslate
 :: lut
 if %lut_on% NEQ 1 (set lut=)
 :: mask
@@ -119,7 +120,7 @@ if %mask_on% NEQ 1 (set mask=) else (set mask=drawbox=x=-t:y=0.5*^(ih-iw/%mask_r
 :: slate
 if %slate_on% NEQ 1 (set mask=) else (set slate=drawtext=fontfile=%font%: text=%clean_name%:x=w/2-tw/2:y=%shot_top%: fontsize=%shot_font_size%: fontcolor=%font_color%@%font_opacity%,drawtext=fontfile=%font%: text=%company%:x=w/2-tw/2:y=%top%: fontsize=%other_font_size%: fontcolor=%font_color%@%font_opacity%,drawtext=fontfile=%font%: text=%project%:x=%left%:y=%top%: fontsize=%other_font_size%: fontcolor=%font_color%@%font_opacity%, drawtext=fontfile=%font%: text=^'%%{localtime}^':x=w-tw-%right%:y=%top%: fontsize=%other_font_size%: fontcolor=%font_color%@%font_opacity%,drawtext=fontfile=%font%:start_number=%start_frame%:text=^'%%{n}^':x=w-tw-%right%:y=h-%bottom%: fontsize=%shot_font_size%: fontcolor=%font_color%@%font_opacity%,)
 
-:: ffmpeg filterÊÇ°´Ë³Ğò½øĞĞµÄ£¬Õâµã¶Ô×Ô¶¯Ëõ·ÅÓ°ÏìºÜ´ó£¬ÏÈpadÔÙscaleºÍÏÈscaleÔÙpadµÄ×îºóÊä³öµÄ³ß´çÊÇ²»Ò»ÑùµÄ¡£ÔÚÕâÀïscaleÒª·ÅÔÚÇ°Ãæ¡£
+:: ffmpeg filteræ˜¯æŒ‰é¡ºåºè¿›è¡Œçš„ï¼Œè¿™ç‚¹å¯¹è‡ªåŠ¨ç¼©æ”¾å½±å“å¾ˆå¤§ï¼Œå…ˆpadå†scaleå’Œå…ˆscaleå†padçš„æœ€åè¾“å‡ºçš„å°ºå¯¸æ˜¯ä¸ä¸€æ ·çš„ã€‚åœ¨è¿™é‡Œscaleè¦æ”¾åœ¨å‰é¢ã€‚
 if %in_height_b% EQU %out_height_b% (set ff_filter="scale=%out_width%:-2,%lut% %mask% %slate% fps=%output_fps%") && goto :out2
 if %in_height_b% LSS %out_height_b% (set ff_filter="scale=%out_width%:-2,pad=x=0:y=(oh-ih)/2:w=0:h=%out_height%:color=%pad_color%,%lut% %mask% %slate% fps=%output_fps%") && goto :out2
 if %in_height_b% GTR %out_height_b% (set ff_filter="scale=%out_width%:-2,crop=%out_width%:%out_height%,%lut% %mask% %slate% fps=%output_fps%") && goto :out2
@@ -128,7 +129,7 @@ if %in_height_b% GTR %out_height_b% (set ff_filter="scale=%out_width%:-2,crop=%o
 
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: ¿ªÊ¼×ªÂë²¢´ò¿ªÊä³öµÄÎÄ¼ş¼Ğ
+:: å¼€å§‹è½¬ç å¹¶æ‰“å¼€è¾“å‡ºçš„æ–‡ä»¶å¤¹
 
 %ffmpeg_path% -framerate %input_fps% -start_number %start_frame% -i %ff_fullpath% -c:v libx264 -crf %quality%  -bf 0 -g 1 -pix_fmt yuv420p  -vf %ff_filter% %ff_full_out_path% && %SystemRoot%\explorer.exe %output_folder%
 
