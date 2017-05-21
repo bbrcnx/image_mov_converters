@@ -1,2 +1,2 @@
-# ffmpeg_batch_mov
+# dragdrop_convert_mov
 主要是做视效时快速将dpx序列帧转成带LUT的mov。通过调整参数也可当做序列帧转mov的通用工具。
