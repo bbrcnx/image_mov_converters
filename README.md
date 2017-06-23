@@ -1,6 +1,8 @@
 
 2017 06 23
+
 dragndrop_LogC_to_Linear.cmd
+
 通过拖拽将logc dpx序列帧文件转成 linear exr文件。
 
 
