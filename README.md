@@ -1,4 +1,9 @@
-# Dragdrop_convert_mov
+
+2017 06 23
+dragndrop_LogC_to_Linear.cmd
+通过拖拽将logc dpx序列帧文件转成 linear exr文件。
+
+
 2017 06 10
 目前主要是用nuke的方法。
 
