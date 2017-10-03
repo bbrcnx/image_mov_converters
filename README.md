@@ -1,4 +1,15 @@
 
+
+2017 10 03
+
+any_to_H264_mov_v001.cmd
+
+将任意video文件拖拽到这个脚本上通过ffmpeg生成h264 mov文件。
+但是颜色与nuke生成的mov会有少许差别，对颜色要求不高的镜头可以用这个脚本快速转换。
+
+
+----
+
 2017 06 23
 
 dragndrop_LogC_to_Linear.cmd
